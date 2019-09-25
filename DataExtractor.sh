@@ -22,7 +22,7 @@ while read p; do
    fi
    filename=`echo $p | awk '{print $1}'`
    dipolesNEnergies=`echo $string1 $string2 | sed 's/:/,/g' | sed 's/ /,/g'`
-   filename=`echo "${filename##*/}"`
+   filename=`echo "${filename##*/}"`  # Here I take my filenumber
    filename=`echo "${filename%.*}"`
    echo $pathToLogs$filename".log,"$pathToCoords$filename".xyz,"$dipolesNEnergies  >> Data_Collection.csv
 
@@ -32,4 +32,4 @@ done <Data_Collection.temp
 sed -i -n '1~2!p' Data_Collection.csv
 
 rm Data_Collection.temp
-
+echo "Done"
