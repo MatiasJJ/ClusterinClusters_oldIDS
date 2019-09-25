@@ -1,3 +1,4 @@
+LogPath,XYZPath,Dipole,Energy
 ./Data1/logs/0.log,./Data1/coord/0.xyz,2.402,-40.9179241
 ./Data1/logs/10.log,./Data1/coord/10.xyz,2.326,-40.9189338
 ./Data1/logs/11.log,./Data1/coord/11.xyz,2.327,-40.9189337
