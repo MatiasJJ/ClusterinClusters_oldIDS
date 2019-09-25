@@ -17,8 +17,11 @@ grep -E 'total E|full: ' Data1/logs/*.log | sed -n '1~2!p' | sed -n '1~3!p' > Da
 #path=`pwd`
 pathToLogs="./Data1/logs/"
 pathToCoords="./Data1/coord/"
+header="Filename,LogPath,XYZPath,Dipole,Energy"
 
-echo "LogPath,XYZPath,Dipole,Energy"  >> Data_Collection.csv
+
+echo $header >> Data_Collection.csv
+echo $header >> Data_Collection.csv
 
 while read p; do
    if [[ $p == *"total E"* ]]; then
@@ -31,7 +34,7 @@ while read p; do
    dipolesNEnergies=`echo $string1 $string2 | sed 's/:/,/g' | sed 's/ /,/g'`
    filename=`echo "${filename##*/}"`  # Here I take my filenumber
    filename=`echo "${filename%.*}"`
-   echo $pathToLogs$filename".log,"$pathToCoords$filename".xyz,"$dipolesNEnergies  >> Data_Collection.csv
+   echo $filename","$pathToLogs$filename".log,"$pathToCoords$filename".xyz,"$dipolesNEnergies >> Data_Collection.csv
 
 
 done <Data_Collection.temp
