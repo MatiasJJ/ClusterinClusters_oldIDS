@@ -2,7 +2,7 @@
 
 Welcome to use `Clusterin'Clusters` -code!
 
-We assume you have just created a plethora of .xyz-files and your face looks like
+We assume you have just created a plethora of .xyz- and .log-files and your face looks like
 ```
   L...L  
  < o o >
@@ -21,4 +21,4 @@ Choose your weapon:
   - Just to get the job done
   - Requires Python 3.7 (maybe)
 
-**Both make use of `CollectAndSortFiles.sh`which is 
+**Both make use of `CollectAndSortFiles.sh`which is a Bash-script meant for organizing
