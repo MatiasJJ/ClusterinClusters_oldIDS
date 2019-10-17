@@ -1,19 +1,27 @@
 # Clusterin'Clusters
 
-![Clusters](Arghive)
+## Project work
+### Introduction to data science
 
-Your Name
-Your Company
-123 Your Street
-Your City, ST 12345
-Introduction
+![Clusters](Archive/Images/BackgroundMol_crop.png)
+
+>Vitus Besel, Matias Jääskeläinen, Ilaria Pia
+University of Helsinki
+
 Some kind of structure will be
-Prerequisites: ABCluster (http://www.zhjun-sci.com/software-abcluster-download.php) + XTB (https://pubs.acs.org/doi/10.1021/acs.jctc.8b01176)
-Cleaning Data:
-bash scripts collecting it in appropriate files
-Forming a nice pandas data frame
-Applying statistical and machine learning methods
-Outcomes
+
+- Prerequisites:  
+  - ABCluster (http://www.zhjun-sci.com/software-abcluster-download.php) + XTB (https://pubs.acs.org/doi/10.1021/acs.jctc.8b01176)
+- Cleaning Data:  
+  - bash scripts collecting it in appropriate files  
+  - Forming a nice pandas data frame  
+  - Applying statistical and machine learning methods  
+
+
+## Introduction
+
+## Outcomes
+
 How do we present it in a website/Manual | How do we sell it?i
 Prerequisites
 ABCluster employs a generic algorithm -> generates molecular clusters from cluster monomers. + Optimization on MM level
