@@ -20,6 +20,17 @@ Some kind of structure will be
 
 ## Introduction
 
+## What the code does?
+reads data in
+makes a .csv-file that contains:
+
+Header row: ``` Filename,LogPath,XYZPath,Dipole,Energy ```
+
+
+| Filename | LogPath | XYZPath | Dipole| Energy |
+|------|------|------|------|------|
+| Name of the cluster | path to .log-file | path to .xyz-file | Dipole moment value | Energy value |
+
 ## Outcomes
 
 How do we present it in a website/Manual | How do we sell it?i
