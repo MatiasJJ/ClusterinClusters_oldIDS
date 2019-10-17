@@ -1,5 +1,6 @@
-# Call this script from the folder with the configuration XTB folders
-
+# This script collects the .log and .xyz files from inside the xtb folder and sorts them into subdirectories logs/ and coords/ in a folder named by the user
+# Input 1: Is the name of the directory where the data will end up
+# Input 2: Is the path to the XTB subdirectories, typically /path/XTB/
 
 name_dir=$1
 path_xtb=$2
@@ -8,6 +9,9 @@ wrk_dir=`pwd`
 mkdir ../$name_dir
 mkdir ../$name_dir/logs
 mkdir ../$name_dir/coords
+
+echo "You created $name_dir to put your data into"
+echo "I will proceed to collect the files ..."
 
 a=0
 b=0
@@ -33,3 +37,5 @@ for i in `ls -d XTB*`
     done
 
 cd $wrk_dir
+
+echo "... Done"
