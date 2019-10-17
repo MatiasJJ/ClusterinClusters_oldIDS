@@ -4,7 +4,6 @@
 
 name_dir=$1
 path_xtb=$2
-wrk_dir=`pwd`
 
 mkdir ../$name_dir
 mkdir ../$name_dir/logs
@@ -15,6 +14,9 @@ echo "I will proceed to collect the files ..."
 
 a=0
 b=0
+
+cd ..
+wrk_dir=`pwd`
 
 cd $path_xtb
 
