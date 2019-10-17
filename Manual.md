@@ -20,6 +20,8 @@ Some kind of structure will be
 
 ## Introduction
 
+Atmospheric science has become increasingly popular especially in the face of climate change and a growing environmental awarness in society. In order to understand the highly complex process happening in the atmosphere it is not only necessary to conduct fieldwork and measurements, it is also important to deliver the theoretical framework in order to perform simulations complementing the fieldwork. One subfield of atmospheric sciences deals with New Particle Formation, which is the formation of particles from single gaseous molecules in the atmosphere, which then can grow further into cloud condensation nuclei. Understanding the way this process of growth is happening
+
 ## What the code does?
 reads data in
 makes a .csv-file that contains:
