@@ -98,9 +98,9 @@ To visualize the multidimensional dataset we use the t-Distributed Stochastic Ne
 The t-SNE aims to preserve the similarity between the original d-dimensional points and the 2-dimensional points returned as an output. As a measure of similarity we take conditional probability under specific kernels. 
 The algorithm can be divided in three steps.  
 
-First we convert the high-dimensional Euclidean distances between d-dimensional datapoints ![equation](https://latex.codecogs.com/gif.latex?%7Bx_i%7D_%7Bi%3D1%2C...%2Cn%7D) into conditional probabilities p{i|j} that represent the probability that x_i would pick x_j as its neighbor if neighbors were picked in proportion to their probability density under a Gaussian centered at x_i. 
+First we convert the high-dimensional Euclidean distances between d-dimensional datapoints ![equation](https://latex.codecogs.com/gif.latex?%28x_i%29_%7Bi%3D1%5Cdots%20n%7D) into conditional probabilities p{i|j} that represent the probability that ![equation](https://latex.codecogs.com/gif.latex?x_i) would pick ![equation](https://latex.codecogs.com/gif.latex?x_j) as its neighbor if neighbors were picked in proportion to their probability density under a Gaussian centered at ![equation](https://latex.codecogs.com/gif.latex?x_i). 
 
-In the same way, we convert the Euclidean distances between 2-dimensional points ![equation](https://latex.codecogs.com/gif.latex?%7By_i%7D_%7Bi%3D1%2C...%2Cn%7D) into conditional probabilities q{i|j} that give the probability that y_i would pick y_j as its neighbor if neighbors were picked in proportion to their probability density under a Chaucy distribution centered at y_i. 
+In the same way, we convert the Euclidean distances between 2-dimensional points ![equation](https://latex.codecogs.com/gif.latex?%28y_i%29_%7Bi%3D1%5Cdots%20n%7D) into conditional probabilities q{i|j} that give the probability that ![equation](https://latex.codecogs.com/gif.latex?y_i) would pick ![equation](https://latex.codecogs.com/gif.latex?y_j) as its neighbor if neighbors were picked in proportion to their probability density under a Chaucy distribution centered at ![equation](https://latex.codecogs.com/gif.latex?y_i). 
 
 Finally, to measure the difference between the probability distributions of the d-dimensional and the 2-dimensional points we use the Kullback-Liebler divergence (KL) :   
 
