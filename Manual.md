@@ -83,7 +83,9 @@ It can be represented as follow:
 
 
 As stated above a crucial parameter is the number of groups k. If such parameter is not clearly recoverable from the data itself, a good criteria to chose the optimal one,  is to find a balance between low within-cluster variation and number of groups. A common method is to select the number of clusters k that maximize the Calinksi-Harabasz (CH) index: 
-![equation](https://latex.codecogs.com/gif.latex?CH%28k%29%3D%5Cfrac%7BB%28k%29%7D%7BW%28k%29%7D%5Cfrac%7Bn-k%7D%7Bk-1%7D) 
+
+![equation](https://latex.codecogs.com/gif.latex?CH%28k%29%3D%5Cfrac%7BB%28k%29%7D%7BW%28k%29%7D%5Cfrac%7Bn-k%7D%7Bk-1%7D)  
+
 where n is the data points, k the number of clusters, W(k) the within cluster variation and B(k) the between cluster variation. 
   
 As the resulting clusters depend strongly on the choice of the starting centroids a common practice is to repeat the algorithm several times with different starting centroids, randomly generated.
@@ -100,8 +102,10 @@ First we convert the high-dimensional Euclidean distances between d-dimensional 
 
 In the same way, we convert the Euclidean distances between 2-dimensional points ![equation](https://latex.codecogs.com/gif.latex?%7By_i%7D_%7Bi%3D1%2C...%2Cn%7D) into conditional probabilities q{i|j} that give the probability that y_i would pick y_j as its neighbor if neighbors were picked in proportion to their probability density under a Chaucy distribution centered at y_i. 
 
-Finally, to measure the difference between the probability distributions of the d-dimensional and the 2-dimensional points we use the Kullback-Liebler divergence (KL) :
-![equation](https://latex.codecogs.com/gif.latex?KL%28P%7C%7CQ%29%20%3D%20%5Csum_%7Bi%20%5Cneq%20j%7D%20p_%7Bij%7D%20%5Clog%28%5Cfrac%7Bp_%7Bij%7D%7D%7Bq_%7Bij%7D%7D%29)
+Finally, to measure the difference between the probability distributions of the d-dimensional and the 2-dimensional points we use the Kullback-Liebler divergence (KL) :   
+
+![equation](https://latex.codecogs.com/gif.latex?KL%28P%7C%7CQ%29%20%3D%20%5Csum_%7Bi%20%5Cneq%20j%7D%20p_%7Bij%7D%20%5Clog%28%5Cfrac%7Bp_%7Bij%7D%7D%7Bq_%7Bij%7D%7D%29)   
+
 T-SNE minimizes the sum of Kullback-Leibler divergences over all datapoints using a gradient descent method.   
 
 A plot of the clustered datapoints in the 2-dimensional t-SNE space is given as a final output.
