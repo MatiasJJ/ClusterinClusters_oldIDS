@@ -57,8 +57,7 @@ PCs are uncorrelated and arranged in order of decreasing variance, so that the f
 
 Assuming we want to reduce the number of our original p variables to k<p variables, the PCA method can be formalized as follows:  
 
-   •  1st PC: determine the coefficients of the linear combination    
-    ![equation](https://latex.codecogs.com/gif.latex?Z_%7B1j%7D%3Da_1%5ETX%3D%5Csum_%7Bi%3D0%7D%5Epa_%7B1i%7DX_i)
+   •  1st PC: determine the coefficients of the linear combination      ![equation](https://latex.codecogs.com/gif.latex?Z_%7B1j%7D%3Da_1%5ETX%3D%5Csum_%7Bi%3D0%7D%5Epa_%7B1i%7DX_i)
     that maximize ![equation](https://latex.codecogs.com/gif.latex?Var%28Z_1%29%3Da_1%5ET%5CSigma%20a_1) under the constraint ![equation](https://latex.codecogs.com/gif.latex?a_1%5ETa_1%3D1)  
    •  2nd PC: determine coefficients of the linear combination 
         ![equation](https://latex.codecogs.com/gif.latex?Z_%7B2j%7D%20%3D%20a_2%5ET%20X%20%3D%20%5Csum_%7Bi%3D0%7D%5Ep%20a_%7B2i%7D%20X_i)
