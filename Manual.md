@@ -55,7 +55,7 @@ The Principal components analysis (PCA) is a tool used to reduce the dimensional
 These two goals in PCA are pursued by means of a transformation of the original variables into new variables, called Principal Components (PCs) that consists of a linear combination of the original variables.
 PCs are uncorrelated and arranged in order of decreasing variance, so that the first PCs account for most of the variation in the sample.     
 
-Assuming we want to reduce the number of our original $p$ variables to $k<p$ variables, the PCA method can be formalized as follows:  
+Assuming we want to reduce the number of our original p variables to k<p variables, the PCA method can be formalized as follows:  
 
     •  1st PC: determine the coefficients of the linear combination 
     $$Z_{1j} = a_1^T X = \sum_{i=0}^p a_{1i} X_i $$ 
@@ -65,13 +65,13 @@ Assuming we want to reduce the number of our original $p$ variables to $k<p$ var
     that maximize $ Var(Z_2) = a_2^T \Sigma a_2$ under the constraint $ a_2^T a_2=1$ and $Cov(Z_1,Z_2)=0$   
     •  proceed in a similar fashion for all other components...   
 
-The final output is a set of $p$ uncorrelated variables with decreasing variance: $Z_1, \dots ,Z_p $ such that $Var (Z1) > Var (Z2) > \dots > Var (Zp)$ and $cov(Zj ; Zk ) = 0$ for $j \neq k$
+The final output is a set of $p$ uncorrelated variables with decreasing variance: Z1,... ,Z_p such that Var(Z1) > Var(Z2) >... > Var(Zp) and Cov(Zj , Zk ) = 0 for j ≠ k.
 
 
 We apply PCA to our coordinates variables, and select new variables, that explain at least $80\%$ of the variability of our data. The variables Dipole and Energy are kept unchanged so that we won't lose their intrinsic meaning.
 
 ### Clustering with k Means 
-In order to reduce the variety of the observations we cluster the data, by using a k-mean algorithm, that is a non-hierarchical method of clustering, i.e. the number $ k $ of groups is assumed to be fixed.
+In order to reduce the variety of the observations we cluster the data, by using a k-mean algorithm, that is a non-hierarchical method of clustering, i.e. the number k of groups is assumed to be fixed.
 The algorithm, introduced by MacQueen in 1967, consists of assigning each datapoint to the cluster whose centroid (i.e. vector of means) is the closest one.  The metric used to measure the distance among groups is typically the Euclidean one. \newline
 It can be represented as follow:
 
@@ -82,9 +82,9 @@ It can be represented as follow:
     5. Repeat 3. - 4. until reaching a maximum number of iterations or when it is not possible to redistribute observations
 
 
-As stated above a crucial parameter is the number of groups $k$. If such parameter is not clearly recoverable from the data itself, a good criteria to chose the optimal one,  is to find a balance between low within-cluster variation and number of groups. A common method is to select the number of clusters $k$ that maximize the Calinksi-Harabasz (CH) index: 
+As stated above a crucial parameter is the number of groups k. If such parameter is not clearly recoverable from the data itself, a good criteria to chose the optimal one,  is to find a balance between low within-cluster variation and number of groups. A common method is to select the number of clusters k that maximize the Calinksi-Harabasz (CH) index: 
 $$CH(k)=\frac{B(k)}{W(k)}\frac{n-k}{k-1}$$
-where $n$ is the data points, $k$ the number of clusters, $W(k)$ the within cluster variation and $B(k)$ the between cluster variation. 
+where n is the data points, k the number of clusters, W(k) the within cluster variation and B(k) the between cluster variation. 
   
 As the resulting clusters depend strongly on the choice of the starting centroids a common practice is to repeat the algorithm several times with different starting centroids, randomly generated.
 
@@ -96,12 +96,12 @@ To visualize the multidimensional dataset we use the t-Distributed Stochastic Ne
 The t-SNE aims to preserve the similarity between the original d-dimensional points and the 2-dimensional points returned as an output. As a measure of similarity we take conditional probability under specific kernels. 
 The algorithm can be divided in three steps.  
 
-First we convert the high-dimensional Euclidean distances between d-dimensional datapoints $\{x_i\}_{i=1,...,n}$ into conditional probabilities $p_{i|j}$ that represent the probability that $x_i$ would pick $x_j$ as its neighbor if neighbors were picked in proportion to their probability density under a Gaussian centered at $x_i$. 
+First we convert the high-dimensional Euclidean distances between d-dimensional datapoints {x_i}_{i=1,...,n} into conditional probabilities p{i|j} that represent the probability that x_i would pick x_j as its neighbor if neighbors were picked in proportion to their probability density under a Gaussian centered at x_i. 
 
-In the same way, we convert the Euclidean distances between 2-dimensional points $\{y_i\}_{i=1,...,n}$ into conditional probabilities $q_{i|j}$ that give the probability that $y_i$ would pick $y_j$ as its neighbor if neighbors were picked in proportion to their probability density under a Chaucy distribution centered at $y_i$. 
+In the same way, we convert the Euclidean distances between 2-dimensional points {y_i}_{i=1,...,n} into conditional probabilities q{i|j} that give the probability that y_i would pick y_j as its neighbor if neighbors were picked in proportion to their probability density under a Chaucy distribution centered at y_i. 
 
 Finally, to measure the difference between the probability distributions of the d-dimensional and the 2-dimensional points we use the Kullback-Liebler divergence (KL) :
-$$KL(P||Q) = \sum_{i\neq j} p_{ij} \log(\frac{p_{ij}}{q_{ij}})$$
+$$KL(P||Q) = \sum_{i ≠ j} p{ij} \log(\frac{p{ij}}{q{ij}})$$
 T-SNE minimizes the sum of Kullback-Leibler divergences over all datapoints using a gradient descent method.   
 
 A plot of the clustered datapoints in the 2-dimensional t-SNE space is given as a final output.
