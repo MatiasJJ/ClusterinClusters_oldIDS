@@ -62,6 +62,7 @@ Assuming we want to reduce the number of our original p variables to k<p variabl
    •  2nd PC: determine coefficients of the linear combination 
         ![equation](https://latex.codecogs.com/gif.latex?Z_%7B2j%7D%20%3D%20a_2%5ET%20X%20%3D%20%5Csum_%7Bi%3D0%7D%5Ep%20a_%7B2i%7D%20X_i)
         that maximize ![equation](https://latex.codecogs.com/gif.latex?Var%28Z_2%29%20%3D%20a_2%5ET%20%5CSigma%20a_2)  under the constraint ![equation](https://latex.codecogs.com/gif.latex?a_2%5ET%20a_2%3D1) and ![equation](https://latex.codecogs.com/gif.latex?Cov%28Z_1%2CZ_2%29%3D0)   
+        
    •  proceed in a similar fashion for all other components...   
 
 The final output is a set of p uncorrelated variables with decreasing variance: Z1,... ,Zp such that Var(Z1) > Var(Z2) >... > Var(Zp) and Cov(Zj , Zk ) = 0 for j ≠ k.
