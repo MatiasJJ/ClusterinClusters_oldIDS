@@ -58,10 +58,10 @@ PCs are uncorrelated and arranged in order of decreasing variance, so that the f
 Assuming we want to reduce the number of our original p variables to k<p variables, the PCA method can be formalized as follows:  
 
     •  1st PC: determine the coefficients of the linear combination 
-    $$Z_{1j} = a_1^T X = \sum_{i=0}^p a_{1i} X_i $$ 
-    that maximize $ Var(Z_1) = a_1^T \Sigma a_1 $ under the constraint $ a_1^T a_1 = 1 $  
+    <img src="https://latex.codecogs.com/gif.latex?Z_{1j}=a_1^TX=\sum_{i=0}^pa_{1i}X_i> 
+    that maximize <img src="https://latex.codecogs.com/gif.latex?Var(Z_1)=a_1^T\Sigmaa_1> under the constraint <img src="https://latex.codecogs.com/gif.latex?a_1^Ta_1=1>  
     •  2nd PC: determine coefficients of the linear combination 
-    $$ Z_{2j} = a_2^T X = \sum_{i=0}^p a_{2i} X_i $$ 
+    <img src="https://latex.codecogs.com/gif.latex?Z_{2j} = a_2^T X = \sum_{i=0}^p a_{2i} X_i > 
     that maximize $ Var(Z_2) = a_2^T \Sigma a_2$ under the constraint $ a_2^T a_2=1$ and $Cov(Z_1,Z_2)=0$   
     •  proceed in a similar fashion for all other components...   
 
