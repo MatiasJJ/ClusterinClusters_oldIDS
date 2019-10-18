@@ -17,20 +17,24 @@ Some kind of structure will be
 
 ## Introduction
 
-Atmospheric science has become increasingly popular especially in the face of climate change and a growing environmental awarness in society. In order to understand the highly complex processes happening in the atmosphere it is not only necessary to conduct fieldwork and measurements, it is also important to deliver the theoretical framework in order to perform simulations complementing the fieldwork or making large scale predictions. One subfield of atmospheric sciences deals with New Particle Formation, which is the formation of particles from single gaseous molecules in the atmosphere, which then can grow further into cloud condensation nuclei. As aerosol- and aerosol-cloud interactions still contribute to the highest uncertainties within current climate models [1](https://www.ipcc.ch/report/ar5/wg1/anthropogenic-and-natural-radiative-forcing/) this subfield of New Particle Formation is a especially interesting research object.
+Atmospheric science has become increasingly popular especially in the face of climate change and a growing environmental awarness in society. In order to understand the highly complex processes happening in the atmosphere it is not only necessary to conduct fieldwork and measurements, it is also important to deliver the theoretical framework in order to perform simulations complementing the fieldwork or making large scale predictions. One subfield of atmospheric sciences deals with New Particle Formation, which is the formation of particles from single gaseous molecules in the atmosphere, which then can grow further into cloud condensation nuclei. As aerosol- and aerosol-cloud interactions still contribute to the highest uncertainties within current climate models ([1](https://www.ipcc.ch/report/ar5/wg1/anthropogenic-and-natural-radiative-forcing/)) this subfield of New Particle Formation is an especially interesting research object.
 
-# Configurational Sampling
+#### Configurational Sampling
 
 In order to understand how single gaseous molecules form first molecular cluster and then bigger particles, it is necessary to know the structure of these molecular clusters. However, with an increasing number of molecules inside of an atmospheric cluster, the number of possible conformers rises rapdily. More simply put there are *e.g.* for a molecular cluster made of six sulfuric acid and six ammonia molecules tens of thousands possible ways to form, differing in distances, angles or protonation states of single molecules. *Configurational Sampling* is a method to obtain the relevant local minima structures -*i.e.* the energetically most favorable ones - by a combination of computational chemistry methods and data analysis. This is needed because mainly these minima structures are present in the atmosphere and therefore relevant for atmospheric simulations.
 
-**Clusterin' Clusters** is a data analysis tool which helps the user to deal with the huge amount of data produced in a Configurational Sampling procedure and moreover
+#### ABCluster and GNF-*x*TB
 
-# ABCluster and GNF-*x* TB
-
-Our code
-
+Our code comes into action after to programs have provided the set-up for the Configurational Sampling. ABCluster is utilizes the artificial bee colony algorithm ([2](http://www.zhjun-sci.com/software-abcluster-download.php)) a generic algorithm which takes the structures of single gaseous molecules given by the user and combines them to molecular clusters and optimizes these structures on a [Molecular Mechanics](https://en.wikipedia.org/wiki/Molecular_mechanics) level of theory. It does this in a way which samples the whole [Configurational Space](https://en.wikipedia.org/wiki/Configuration_space_(physics)) and produces an amount of local minima defined by the user (typically 2000 - 100 000). Further the semi-empirical method GNF-*x*TB is used to once again optimize these structures on a better level of theory. We assume that these steps are conducted by the user within the [Jammy Key for Configurational Sampling (JKCS)](https://pubs.acs.org/doi/10.1021/acs.jpca.9b03853))
 
 ## What the code does?
+
+#### Objective
+
+After ABCluster and GNF-*x*TB within JKCS the user is left with thousands of output (.log) files and structure (.xyz) files in a certain directory structure. **Clusterin' Clusters** which collects these files in an organized manner, extracts the relevant variables from these files (cartesian coordinates, dipoles and energies) and gives a ...
+
+The 
+
 reads data in
 makes a .csv-file that contains:
 
