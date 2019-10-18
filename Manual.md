@@ -65,7 +65,7 @@ Assuming we want to reduce the number of our original p variables to k<p variabl
         
    •  proceed in a similar fashion for all other components...   
 
-The final output is a set of p uncorrelated variables with decreasing variance: !{equation](https://latex.codecogs.com/gif.latex?Z_1%2C...%20%2CZ_p) such that !{equation](https://latex.codecogs.com/gif.latex?Var%28Z_1%29%20%3E%20Var%28Z_2%29%20%3E...%20%3E%20Var%28Z_p%29) and !{equation](https://latex.codecogs.com/gif.latex?Cov%28Z_j%20%2C%20Z_k%20%29%20%3D%200) for j ≠ k.
+The final output is a set of p uncorrelated variables with decreasing variance: ![equation](https://latex.codecogs.com/gif.latex?Z_1%2C...%20%2CZ_p) such that ![equation](https://latex.codecogs.com/gif.latex?Var%28Z_1%29%20%3E%20Var%28Z_2%29%20%3E...%20%3E%20Var%28Z_p%29) and ![equation](https://latex.codecogs.com/gif.latex?Cov%28Z_j%20%2C%20Z_k%20%29%20%3D%200) for j ≠ k.
 
 
 We apply PCA to our coordinates variables, and select new variables, that explain at least 80% of the variability of our data. The variables Dipole and Energy are kept unchanged so that we won't lose their intrinsic meaning.
