@@ -57,33 +57,33 @@ PCs are uncorrelated and arranged in order of decreasing variance, so that the f
 
 Assuming we want to reduce the number of our original p variables to k<p variables, the PCA method can be formalized as follows:  
 
-    •  1st PC: determine the coefficients of the linear combination 
-    ![equation](https://www.codecogs.com/eqnedit.php?latex=Z_{1j}=a_1^TX=\sum_{i=0}^pa_{1i}X_i" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Z_{1j}=a_1^TX=\sum_{i=0}^pa_{1i}X_i" title="Z_{1j}=a_1^TX=\sum_{i=0}^pa_{1i}X_i" /></a>)
-    that maximize <img src="https://latex.codecogs.com/gif.latex?Var(Z_1)=a_1^T\Sigmaa_1> under the constraint <img src="https://latex.codecogs.com/gif.latex?a_1^Ta_1=1>  
-    •  2nd PC: determine coefficients of the linear combination 
-    <img src="https://latex.codecogs.com/gif.latex?Z_{2j} = a_2^T X = \sum_{i=0}^p a_{2i} X_i > 
-    that maximize $ Var(Z_2) = a_2^T \Sigma a_2$ under the constraint $ a_2^T a_2=1$ and $Cov(Z_1,Z_2)=0$   
-    •  proceed in a similar fashion for all other components...   
+   •  1st PC: determine the coefficients of the linear combination 
+    ![equation](https://latex.codecogs.com/gif.latex?Z_%7B1j%7D%3Da_1%5ETX%3D%5Csum_%7Bi%3D0%7D%5Epa_%7B1i%7DX_i)
+    that maximize ![equation](https://latex.codecogs.com/gif.latex?Var%28Z_1%29%3Da_1%5ET%5CSigma%20a_1) under the constraint ![equation](https://latex.codecogs.com/gif.latex?a_1%5ETa_1%3D1)  
+   •  2nd PC: determine coefficients of the linear combination 
+     ![equation](https://latex.codecogs.com/gif.latex?Z_%7B2j%7D%20%3D%20a_2%5ET%20X%20%3D%20%5Csum_%7Bi%3D0%7D%5Ep%20a_%7B2i%7D%20X_i)
+    that maximize ![equation](https://latex.codecogs.com/gif.latex?Var%28Z_2%29%20%3D%20a_2%5ET%20%5CSigma%20a_2)  under the constraint ![equation](https://latex.codecogs.com/gif.latex?a_2%5ET%20a_2%3D1) and ![equation](https://latex.codecogs.com/gif.latex?Cov%28Z_1%2CZ_2%29%3D0)   
+   •  proceed in a similar fashion for all other components...   
 
-The final output is a set of $p$ uncorrelated variables with decreasing variance: Z1,... ,Z_p such that Var(Z1) > Var(Z2) >... > Var(Zp) and Cov(Zj , Zk ) = 0 for j ≠ k.
+The final output is a set of p uncorrelated variables with decreasing variance: Z1,... ,Zp such that Var(Z1) > Var(Z2) >... > Var(Zp) and Cov(Zj , Zk ) = 0 for j ≠ k.
 
 
-We apply PCA to our coordinates variables, and select new variables, that explain at least $80\%$ of the variability of our data. The variables Dipole and Energy are kept unchanged so that we won't lose their intrinsic meaning.
+We apply PCA to our coordinates variables, and select new variables, that explain at least 80% of the variability of our data. The variables Dipole and Energy are kept unchanged so that we won't lose their intrinsic meaning.
 
 ### Clustering with k-Means 
 In order to reduce the variety of the observations we cluster the data, by using a k-mean algorithm, that is a non-hierarchical method of clustering, i.e. the number k of groups is assumed to be fixed.
 The algorithm, introduced by MacQueen in 1967, consists of assigning each datapoint to the cluster whose centroid (i.e. vector of means) is the closest one.  The metric used to measure the distance among groups is typically the Euclidean one. \newline
 It can be represented as follow:
 
-    1. Initial partition into K clusters, (possibly randomly generated)
-    2. For each of the K clusters, compute the cluster centroid.
-    3. Assign each observation to the cluster whose centroid is closest
-    4. Recompute centroids for all clusters
-    5. Repeat 3. - 4. until reaching a maximum number of iterations or when it is not possible to redistribute observations
+   1. Initial partition into K clusters, (possibly randomly generated)
+   2. For each of the K clusters, compute the cluster centroid.
+   3. Assign each observation to the cluster whose centroid is closest
+   4. Recompute centroids for all clusters
+   5. Repeat 3. - 4. until reaching a maximum number of iterations or when it is not possible to redistribute observations
 
 
 As stated above a crucial parameter is the number of groups k. If such parameter is not clearly recoverable from the data itself, a good criteria to chose the optimal one,  is to find a balance between low within-cluster variation and number of groups. A common method is to select the number of clusters k that maximize the Calinksi-Harabasz (CH) index: 
-$$CH(k)=\frac{B(k)}{W(k)}\frac{n-k}{k-1}$$
+![equation](https://latex.codecogs.com/gif.latex?CH%28k%29%3D%5Cfrac%7BB%28k%29%7D%7BW%28k%29%7D%5Cfrac%7Bn-k%7D%7Bk-1%7D) 
 where n is the data points, k the number of clusters, W(k) the within cluster variation and B(k) the between cluster variation. 
   
 As the resulting clusters depend strongly on the choice of the starting centroids a common practice is to repeat the algorithm several times with different starting centroids, randomly generated.
@@ -96,12 +96,12 @@ To visualize the multidimensional dataset we use the t-Distributed Stochastic Ne
 The t-SNE aims to preserve the similarity between the original d-dimensional points and the 2-dimensional points returned as an output. As a measure of similarity we take conditional probability under specific kernels. 
 The algorithm can be divided in three steps.  
 
-First we convert the high-dimensional Euclidean distances between d-dimensional datapoints {x_i}_{i=1,...,n} into conditional probabilities p{i|j} that represent the probability that x_i would pick x_j as its neighbor if neighbors were picked in proportion to their probability density under a Gaussian centered at x_i. 
+First we convert the high-dimensional Euclidean distances between d-dimensional datapoints ![equation](https://latex.codecogs.com/gif.latex?%7Bx_i%7D_%7Bi%3D1%2C...%2Cn%7D) into conditional probabilities p{i|j} that represent the probability that x_i would pick x_j as its neighbor if neighbors were picked in proportion to their probability density under a Gaussian centered at x_i. 
 
-In the same way, we convert the Euclidean distances between 2-dimensional points {y_i}_{i=1,...,n} into conditional probabilities q{i|j} that give the probability that y_i would pick y_j as its neighbor if neighbors were picked in proportion to their probability density under a Chaucy distribution centered at y_i. 
+In the same way, we convert the Euclidean distances between 2-dimensional points ![equation](https://latex.codecogs.com/gif.latex?%7By_i%7D_%7Bi%3D1%2C...%2Cn%7D) into conditional probabilities q{i|j} that give the probability that y_i would pick y_j as its neighbor if neighbors were picked in proportion to their probability density under a Chaucy distribution centered at y_i. 
 
 Finally, to measure the difference between the probability distributions of the d-dimensional and the 2-dimensional points we use the Kullback-Liebler divergence (KL) :
-$$KL(P||Q) = \sum_{i ≠ j} p{ij} \log(\frac{p{ij}}{q{ij}})$$
+![equation](https://latex.codecogs.com/gif.latex?KL%28P%7C%7CQ%29%20%3D%20%5Csum_%7Bi%20%5Cneq%20j%7D%20p_%7Bij%7D%20%5Clog%28%5Cfrac%7Bp_%7Bij%7D%7D%7Bq_%7Bij%7D%7D%29)
 T-SNE minimizes the sum of Kullback-Leibler divergences over all datapoints using a gradient descent method.   
 
 A plot of the clustered datapoints in the 2-dimensional t-SNE space is given as a final output.
