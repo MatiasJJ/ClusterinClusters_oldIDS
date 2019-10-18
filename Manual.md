@@ -1,8 +1,5 @@
 # Clusterin'Clusters
 
-## Project work
-### Introduction to data science
-
 ![Clusters](Archive/Images/BackgroundMol_crop.png)
 
 >Vitus Besel, Matias Jääskeläinen, Ilaria Pia
@@ -59,10 +56,10 @@ Assuming we want to reduce the number of our original p variables to k<p variabl
 
    •  1st PC: determine the coefficients of the linear combination      ![equation](https://latex.codecogs.com/gif.latex?Z_%7B1j%7D%3Da_1%5ETX%3D%5Csum_%7Bi%3D0%7D%5Epa_%7B1i%7DX_i)
     that maximize ![equation](https://latex.codecogs.com/gif.latex?Var%28Z_1%29%3Da_1%5ET%5CSigma%20a_1) under the constraint ![equation](https://latex.codecogs.com/gif.latex?a_1%5ETa_1%3D1)  
-   •  2nd PC: determine coefficients of the linear combination 
+   •  2nd PC: determine coefficients of the linear combination
         ![equation](https://latex.codecogs.com/gif.latex?Z_%7B2j%7D%20%3D%20a_2%5ET%20X%20%3D%20%5Csum_%7Bi%3D0%7D%5Ep%20a_%7B2i%7D%20X_i)
         that maximize ![equation](https://latex.codecogs.com/gif.latex?Var%28Z_2%29%20%3D%20a_2%5ET%20%5CSigma%20a_2)  under the constraint ![equation](https://latex.codecogs.com/gif.latex?a_2%5ET%20a_2%3D1) and ![equation](https://latex.codecogs.com/gif.latex?Cov%28Z_1%2CZ_2%29%3D0)   
-        
+
    •  proceed in a similar fashion for all other components...   
 
 The final output is a set of p uncorrelated variables with decreasing variance: ![equation](https://latex.codecogs.com/gif.latex?Z_1%2C...%20%2CZ_p) such that ![equation](https://latex.codecogs.com/gif.latex?Var%28Z_1%29%20%3E%20Var%28Z_2%29%20%3E...%20%3E%20Var%28Z_p%29) and ![equation](https://latex.codecogs.com/gif.latex?Cov%28Z_j%20%2C%20Z_k%20%29%20%3D%200) for j ≠ k.
@@ -70,7 +67,7 @@ The final output is a set of p uncorrelated variables with decreasing variance: 
 
 We apply PCA to our coordinates variables, and select new variables, that explain at least 80% of the variability of our data. The variables Dipole and Energy are kept unchanged so that we won't lose their intrinsic meaning.
 
-### Clustering with k-Means 
+### Clustering with k-Means
 In order to reduce the variety of the observations we cluster the data, by using a k-mean algorithm, that is a non-hierarchical method of clustering, i.e. the number k of groups is assumed to be fixed.
 The algorithm, introduced by MacQueen in 1967, consists of assigning each datapoint to the cluster whose centroid (i.e. vector of means) is the closest one.  The metric used to measure the distance among groups is typically the Euclidean one. \newline
 It can be represented as follow:
@@ -82,12 +79,12 @@ It can be represented as follow:
    5. Repeat 3. - 4. until reaching a maximum number of iterations or when it is not possible to redistribute observations
 
 
-As stated above a crucial parameter is the number of groups k. If such parameter is not clearly recoverable from the data itself, a good criteria to chose the optimal one,  is to find a balance between low within-cluster variation and number of groups. A common method is to select the number of clusters k that maximize the Calinksi-Harabasz (CH) index: 
+As stated above a crucial parameter is the number of groups k. If such parameter is not clearly recoverable from the data itself, a good criteria to chose the optimal one,  is to find a balance between low within-cluster variation and number of groups. A common method is to select the number of clusters k that maximize the Calinksi-Harabasz (CH) index:
 
 ![equation](https://latex.codecogs.com/gif.latex?CH%28k%29%3D%5Cfrac%7BB%28k%29%7D%7BW%28k%29%7D%5Cfrac%7Bn-k%7D%7Bk-1%7D)  
 
-where n is the data points, k the number of clusters, W(k) the within cluster variation and B(k) the between cluster variation. 
-  
+where n is the data points, k the number of clusters, W(k) the within cluster variation and B(k) the between cluster variation.
+
 As the resulting clusters depend strongly on the choice of the starting centroids a common practice is to repeat the algorithm several times with different starting centroids, randomly generated.
 
 
@@ -95,12 +92,12 @@ We applied the k-mean algorithm to our data, selecting a number of clusters k=23
 
 ### Visualization with t-SNE
 To visualize the multidimensional dataset we use the t-Distributed Stochastic Neighbor Embedding (t-SNE), an unsupervised, non-linear technique of dimensionality reduction, introduced by Laurens van der Maatens and Geoffrey Hinton in 2008.   
-The t-SNE aims to preserve the similarity between the original d-dimensional points and the 2-dimensional points returned as an output. As a measure of similarity we take conditional probability under specific kernels. 
+The t-SNE aims to preserve the similarity between the original d-dimensional points and the 2-dimensional points returned as an output. As a measure of similarity we take conditional probability under specific kernels.
 The algorithm can be divided in three steps.  
 
-First we convert the high-dimensional Euclidean distances between d-dimensional datapoints ![equation](https://latex.codecogs.com/gif.latex?%28x_i%29_%7Bi%3D1%5Cdots%20n%7D) into conditional probabilities ![equation](https://latex.codecogs.com/gif.latex?p_%7Bi%7Cj%7D) that represent the probability that ![equation](https://latex.codecogs.com/gif.latex?x_i) would pick ![equation](https://latex.codecogs.com/gif.latex?x_j) as its neighbor if neighbors were picked in proportion to their probability density under a Gaussian centered at ![equation](https://latex.codecogs.com/gif.latex?x_i). 
+First we convert the high-dimensional Euclidean distances between d-dimensional datapoints ![equation](https://latex.codecogs.com/gif.latex?%28x_i%29_%7Bi%3D1%5Cdots%20n%7D) into conditional probabilities ![equation](https://latex.codecogs.com/gif.latex?p_%7Bi%7Cj%7D) that represent the probability that ![equation](https://latex.codecogs.com/gif.latex?x_i) would pick ![equation](https://latex.codecogs.com/gif.latex?x_j) as its neighbor if neighbors were picked in proportion to their probability density under a Gaussian centered at ![equation](https://latex.codecogs.com/gif.latex?x_i).
 
-In the same way, we convert the Euclidean distances between 2-dimensional points ![equation](https://latex.codecogs.com/gif.latex?%28y_i%29_%7Bi%3D1%5Cdots%20n%7D) into conditional probabilities ![equation](https://latex.codecogs.com/gif.latex?q_%7Bi%7Cj%7D) that give the probability that ![equation](https://latex.codecogs.com/gif.latex?y_i) would pick ![equation](https://latex.codecogs.com/gif.latex?y_j) as its neighbor if neighbors were picked in proportion to their probability density under a Chaucy distribution centered at ![equation](https://latex.codecogs.com/gif.latex?y_i). 
+In the same way, we convert the Euclidean distances between 2-dimensional points ![equation](https://latex.codecogs.com/gif.latex?%28y_i%29_%7Bi%3D1%5Cdots%20n%7D) into conditional probabilities ![equation](https://latex.codecogs.com/gif.latex?q_%7Bi%7Cj%7D) that give the probability that ![equation](https://latex.codecogs.com/gif.latex?y_i) would pick ![equation](https://latex.codecogs.com/gif.latex?y_j) as its neighbor if neighbors were picked in proportion to their probability density under a Chaucy distribution centered at ![equation](https://latex.codecogs.com/gif.latex?y_i).
 
 Finally, to measure the difference between the probability distributions of the d-dimensional and the 2-dimensional points we use the Kullback-Liebler divergence (KL) :   
 
@@ -129,4 +126,3 @@ Discussion
 Does it work? In which ways?
 Publication
 How do we present it / publish it?
-
