@@ -70,7 +70,7 @@ The final output is a set of $p$ uncorrelated variables with decreasing variance
 
 We apply PCA to our coordinates variables, and select new variables, that explain at least $80\%$ of the variability of our data. The variables Dipole and Energy are kept unchanged so that we won't lose their intrinsic meaning.
 
-### Clustering with k Means 
+### Clustering with k-Means 
 In order to reduce the variety of the observations we cluster the data, by using a k-mean algorithm, that is a non-hierarchical method of clustering, i.e. the number k of groups is assumed to be fixed.
 The algorithm, introduced by MacQueen in 1967, consists of assigning each datapoint to the cluster whose centroid (i.e. vector of means) is the closest one.  The metric used to measure the distance among groups is typically the Euclidean one. \newline
 It can be represented as follow:
@@ -89,7 +89,7 @@ where n is the data points, k the number of clusters, W(k) the within cluster va
 As the resulting clusters depend strongly on the choice of the starting centroids a common practice is to repeat the algorithm several times with different starting centroids, randomly generated.
 
 
-We applied the k-mean algorithm to our data, selecting a number of clusters $k=23$ as ??????. The possibility to select k according to the CH index is also given.
+We applied the k-mean algorithm to our data, selecting a number of clusters k=23 as this is the number of possible permutations of our chemical cluster: there are 23 different ways of adding 4 water molecules, 1 ammonia and 1 sulfuric acid. The possibility to select k according to the CH index is also given.
 
 ### Visualization with t-SNE
 To visualize the multidimensional dataset we use the t-Distributed Stochastic Neighbor Embedding (t-SNE), an unsupervised, non-linear technique of dimensionality reduction, introduced by Laurens van der Maatens and Geoffrey Hinton in 2008.   
