@@ -65,7 +65,7 @@ Assuming we want to reduce the number of our original p variables to k<p variabl
         
    •  proceed in a similar fashion for all other components...   
 
-The final output is a set of p uncorrelated variables with decreasing variance: Z1,... ,Zp such that Var(Z1) > Var(Z2) >... > Var(Zp) and Cov(Zj , Zk ) = 0 for j ≠ k.
+The final output is a set of p uncorrelated variables with decreasing variance: !{equation](https://latex.codecogs.com/gif.latex?Z_1%2C...%20%2CZ_p) such that !{equation](https://latex.codecogs.com/gif.latex?Var%28Z_1%29%20%3E%20Var%28Z_2%29%20%3E...%20%3E%20Var%28Z_p%29) and !{equation](https://latex.codecogs.com/gif.latex?Cov%28Z_j%20%2C%20Z_k%20%29%20%3D%200) for j ≠ k.
 
 
 We apply PCA to our coordinates variables, and select new variables, that explain at least 80% of the variability of our data. The variables Dipole and Energy are kept unchanged so that we won't lose their intrinsic meaning.
@@ -98,9 +98,9 @@ To visualize the multidimensional dataset we use the t-Distributed Stochastic Ne
 The t-SNE aims to preserve the similarity between the original d-dimensional points and the 2-dimensional points returned as an output. As a measure of similarity we take conditional probability under specific kernels. 
 The algorithm can be divided in three steps.  
 
-First we convert the high-dimensional Euclidean distances between d-dimensional datapoints ![equation](https://latex.codecogs.com/gif.latex?%28x_i%29_%7Bi%3D1%5Cdots%20n%7D) into conditional probabilities p{i|j} that represent the probability that ![equation](https://latex.codecogs.com/gif.latex?x_i) would pick ![equation](https://latex.codecogs.com/gif.latex?x_j) as its neighbor if neighbors were picked in proportion to their probability density under a Gaussian centered at ![equation](https://latex.codecogs.com/gif.latex?x_i). 
+First we convert the high-dimensional Euclidean distances between d-dimensional datapoints ![equation](https://latex.codecogs.com/gif.latex?%28x_i%29_%7Bi%3D1%5Cdots%20n%7D) into conditional probabilities ![equation](https://latex.codecogs.com/gif.latex?p_%7Bi%7Cj%7D) that represent the probability that ![equation](https://latex.codecogs.com/gif.latex?x_i) would pick ![equation](https://latex.codecogs.com/gif.latex?x_j) as its neighbor if neighbors were picked in proportion to their probability density under a Gaussian centered at ![equation](https://latex.codecogs.com/gif.latex?x_i). 
 
-In the same way, we convert the Euclidean distances between 2-dimensional points ![equation](https://latex.codecogs.com/gif.latex?%28y_i%29_%7Bi%3D1%5Cdots%20n%7D) into conditional probabilities q{i|j} that give the probability that ![equation](https://latex.codecogs.com/gif.latex?y_i) would pick ![equation](https://latex.codecogs.com/gif.latex?y_j) as its neighbor if neighbors were picked in proportion to their probability density under a Chaucy distribution centered at ![equation](https://latex.codecogs.com/gif.latex?y_i). 
+In the same way, we convert the Euclidean distances between 2-dimensional points ![equation](https://latex.codecogs.com/gif.latex?%28y_i%29_%7Bi%3D1%5Cdots%20n%7D) into conditional probabilities ![equation](https://latex.codecogs.com/gif.latex?q_%7Bi%7Cj%7D) that give the probability that ![equation](https://latex.codecogs.com/gif.latex?y_i) would pick ![equation](https://latex.codecogs.com/gif.latex?y_j) as its neighbor if neighbors were picked in proportion to their probability density under a Chaucy distribution centered at ![equation](https://latex.codecogs.com/gif.latex?y_i). 
 
 Finally, to measure the difference between the probability distributions of the d-dimensional and the 2-dimensional points we use the Kullback-Liebler divergence (KL) :   
 
