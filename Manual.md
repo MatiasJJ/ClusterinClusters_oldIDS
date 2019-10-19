@@ -64,7 +64,7 @@ The Principal components analysis (PCA) is a tool used to reduce the dimensional
 These two goals in PCA are pursued by means of a transformation of the original variables into new variables, called Principal Components (PCs) that consists of a linear combination of the original variables.
 PCs are uncorrelated and arranged in order of decreasing variance, so that the first PCs account for most of the variation in the sample.     
 
-Assuming we want to reduce the number of our original p variables to k<p variables, the PCA method can be formalized as follows:  
+Assuming we want to reduce the number of our original p variables to k<p variables, , denoted Σ the covariance matrix of the variables' matrix X, the PCA method can be formalized as follows:  
 
    •  1st PC: determine the coefficients of the linear combination      ![equation](https://latex.codecogs.com/gif.latex?Z_%7B1j%7D%3Da_1%5ETX%3D%5Csum_%7Bi%3D0%7D%5Epa_%7B1i%7DX_i)
     that maximize ![equation](https://latex.codecogs.com/gif.latex?Var%28Z_1%29%3Da_1%5ET%5CSigma%20a_1) under the constraint ![equation](https://latex.codecogs.com/gif.latex?a_1%5ETa_1%3D1)  
@@ -95,7 +95,7 @@ As stated above a crucial parameter is the number of groups k. If such parameter
 
 ![equation](https://latex.codecogs.com/gif.latex?CH%28k%29%3D%5Cfrac%7BB%28k%29%7D%7BW%28k%29%7D%5Cfrac%7Bn-k%7D%7Bk-1%7D)  
 
-where n is the data points, k the number of clusters, W(k) the within cluster variation and B(k) the between cluster variation.
+where n is the number of data points, k the number of clusters, W(k) the within cluster variation and B(k) the between cluster variation.
 
 As the resulting clusters depend strongly on the choice of the starting centroids a common practice is to repeat the algorithm several times with different starting centroids, randomly generated.
 
