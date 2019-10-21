@@ -40,7 +40,7 @@ Choose your weapon with the help of this diagram:
 
 ### Second
 
-Make a folder for your project and download your weapon of choice into that folder:
+Make a folder for your project and download your weapon of choice into that folder.
 
 ##### Jupyter Notebook
 
@@ -54,22 +54,21 @@ Files:
 
 ### Third
 
-
-Run `CollectAndSortFiles.sh`
+Run `CollectAndSortFiles.sh`  
 *Usage:* `./CollectAndSortFiles.sh <Name of the directory which the data will be put to> <Absolute path to directory containing XTB_>`
 
-Run `DataExtractor.sh`
- *Usage:* `./DataExtractor.sh <Name of the directory where the data was put into>`
+Run `DataExtractor.sh`  
+*Usage:* `./DataExtractor.sh <Name of the directory where the data was put into>`
 
 
 > If you're using just the python script:
 
 Run the Python script
-*Usage:* `python clusterin.py`
+*Usage:* `python clusterin.py <Name of the directory where the data was put into>`
 
 > If you're using the Jupyter Notebook
 
-Open the JupyterNotebook and run it
+Open the JupyterNotebook and run it. Please read the text in between.
 
 
 ```
