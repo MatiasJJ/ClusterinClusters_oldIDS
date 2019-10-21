@@ -14,11 +14,11 @@ if [ -e Data_Collection.csv ]; then
 	rm Data_Collection.csv
 fi
 
+echo "This will take a few minutes."
+echo "Preparing the DataCollection.tmp ..."
 
-
-rm $1/Data_Collection.csv
 # Greps all the lines with 'total E' and 'full', delete first every second and then every third line
-grep -E 'total E|full: ' logs/*.log | sed -n '1~2!p' | sed -n '1~3!p' > ../$1/Data_Collection.temp
+grep -E 'total E|full: ' logs/*.log | sed -n '1~2!p' | sed -n '1~3!p' > Data_Collection.temp
 
 # I still have to make warnings if the output file exists etc....
 #Too lazy now
@@ -28,6 +28,7 @@ pathToLogs="$absPath/logs/"
 pathToCoords="$absPath/coord/"
 header="Filename,LogPath,XYZPath,Dipole,Energy"
 
+echo "Preparing the DataCollection.csv ..."
 
 echo $header >> Data_Collection.csv
 echo $header >> Data_Collection.csv
@@ -49,6 +50,6 @@ while read p; do
 done <Data_Collection.temp
 
 sed -i -n '1~2!p' Data_Collection.csv
-
+echo "Remove DataCollection.tmp ..."
 rm Data_Collection.temp
 echo "Done"
