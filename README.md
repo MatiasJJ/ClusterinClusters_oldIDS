@@ -38,28 +38,40 @@ Integrate the scripts into the python stuff
 
 ### Second
 
-Download your weapon of choice:
+Make a folder for your project and download your weapon of choice into that folder:
 
 ##### Jupyter Notebook
 
 Files:  
-`ClusterClusterML.ipynb`  
 `JupyterNotebook`-folder
-
-Put them into the folder where your data is
-> Or how the `.sh`'s make it work?
 
 ##### The Script collection
 
 Files:  
 `Scripts`-folder
 
-Put them into the folder where your data is
-> Or how the `.sh`'s make it work?
-
 ### Third
 
-Run
+***
+WARNING: with MacOS you have to modify the `sed`-syntax inside the bash-scripts.
+***
+
+Run `CollectAndSortFiles.sh`
+*Usage:* `./CollectAndSortFiles.sh <Name of the directory which the data will be put to> <Absolute path to directory containing XTB_>`
+
+Run `DataExtractor.sh`
+ *Usage:* `./DataExtractor.sh <Name of the directory where the data was put into>`
+
+
+> If you're using just the python script:
+
+Run the Python script
+*Usage:* `python clusterin.py`
+
+> If you're using the Jupyter Notebook
+
+
+
 ```
             _( }
    -=  _  <<  \
