@@ -30,11 +30,11 @@ Choose your weapon with the help of this diagram:
 | Requirements | [Jupyter](https://anaconda.org) | [Python 3.7](https://www.python.org) |
 | Recommended for     | Scientists  | Chemists    |
 
-***
-Integrate the scripts into the python stuff
-***
 
 *Both make use of `CollectAndSortFiles.sh` and `DataExtractor.sh` which are Bash-scripts that organize the data into the form that can be then analyzed by the script*  
+
+>WARNING: with MacOS you have to modify the `sed`-syntax inside the bash-scripts.
+
 
 ### Second
 
@@ -52,9 +52,6 @@ Files:
 
 ### Third
 
-***
-WARNING: with MacOS you have to modify the `sed`-syntax inside the bash-scripts.
-***
 
 Run `CollectAndSortFiles.sh`
 *Usage:* `./CollectAndSortFiles.sh <Name of the directory which the data will be put to> <Absolute path to directory containing XTB_>`
