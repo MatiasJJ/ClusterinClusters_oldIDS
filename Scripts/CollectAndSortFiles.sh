@@ -8,20 +8,21 @@ echo `pwd`
 mkdir ../$name_dir
 mkdir ../$name_dir/logs
 mkdir ../$name_dir/coords
+mkdir ../$name_dir/outputs
 
 echo "You created $name_dir to put your data into"
-echo "I will proceed to collect the files ..."
+echo "I will proceed to collect the files ... (this may take a few minute)"
 
 a=0
 b=0
-
+xtb_count=0
 cd ..
 wrk_dir=`pwd`
 
 cd $path_xtb
-echo `pwd`
 for i in `ls -d XTB*`
         do echo $i
+        let xtb_count=xtb_count+1
         cd $i
         cd calc-LM
          for j in `ls *.log`; 
@@ -40,4 +41,7 @@ for i in `ls -d XTB*`
 
 cd $wrk_dir
 
+echo "Dealt with"
+echo $xtb_count
+echo "XTB sub directories, please hand this number to the statistical program."
 echo "... Done"
