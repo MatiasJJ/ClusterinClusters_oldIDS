@@ -8,5 +8,6 @@ This folder is for files that the end user should not be bothered with.
 
 
 # TODO
+- [ ] read avg coords from arrays and produce xyzs
 - [ ] polish the notebook to the copy
 - [ ] make python scrips
