@@ -23,15 +23,14 @@ cd $path_xtb
 for i in `ls -d XTB*`
         do echo $i
         let xtb_count=xtb_count+1
-        cd $i
-        cd calc-LM
+        cd $i/calc-LM
          for j in `ls *.log`; 
            do #echo $a
            name_log="$a"".log"   
            name_xyz_it="$a"".xyz"   
            name_bet=${j%%.*}
            name_xyz="$name_bet"".xyz"
-           cp $j $wrk_dir/$1/logs/$name
+           cp $j $wrk_dir/$1/logs/$name_log
            cp $name_xyz $wrk_dir/$1/coords/$name_xyz_it
             let a=a+1
         done
