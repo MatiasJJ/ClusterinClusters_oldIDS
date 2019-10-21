@@ -2,6 +2,8 @@
 
 Welcome to use `Clusterin'Clusters` -code!
 
+> This is still under construction!
+
 We assume you have just created a plethora of .xyz- and .log-files and your face looks like
 
 Or actually we assume that you have created a sh*tload of XTB-data and still your face looks like:
@@ -67,6 +69,7 @@ Run the Python script
 
 > If you're using the Jupyter Notebook
 
+Open the JupyterNotebook and run it
 
 
 ```
