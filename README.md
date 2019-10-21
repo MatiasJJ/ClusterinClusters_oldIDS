@@ -4,7 +4,7 @@ Welcome to use `Clusterin'Clusters` -code!
 
 We assume you have just created a plethora of .xyz- and .log-files and your face looks like
 
-Or actually we assume that you hae created a shitload of XTB-data and still your face looks like:
+Or actually we assume that you have created a sh*tload of XTB-data and still your face looks like:
 ```
   L...L  
  < o o >
@@ -20,7 +20,7 @@ Or actually we assume that you hae created a shitload of XTB-data and still your
 
 ### First
 
-Choose your weapon:  
+Choose your weapon with the help of this diagram:  
 
 | *Features*          | **Jupyter**     | **Script-collection**   |
 | :------------------ | :-------------- | :-------------- |

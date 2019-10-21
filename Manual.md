@@ -19,11 +19,11 @@ Our code comes into action after following programs have provided the set-up for
 
 After ABCluster and GNF-*x*TB within JKCS the user is left with thousands of output (.log) files and structure (.xyz) files in a certain directory structure. **Clusterin' Clusters** contains two bash-script, which deal with this data.
 
-**CollectAndSortFiles** creates a directory with a user specified name and resolves the directory structure from XTB by copying the .log files and .xzy files enumerated into respective directories.
-*Usage:* ./CollectAndSortFiles.sh <Name of the directory which the data will be put to> <Absolute path to directory containing XTB_*>
+`CollectAndSortFiles.sh` creates a directory with a user specified name and resolves the directory structure from XTB by copying the .log files and .xyz files enumerated into respective directories.
+*Usage:* `./CollectAndSortFiles.sh <Name of the directory which the data will be put to> <Absolute path to directory containing XTB_>`
 
-**DataExtractor.sh** produces the Data_Collection.csv file, which contains the file number, energies and dipoles from the .log files and the paths to the .log and .xzy files.
- *Usage:* ./DataExtractor.sh <Name of the directory >
+`DataExtractor.sh` produces the **Data_Collection.csv** file, which contains the file number, energies and dipoles from the `.log` files and the paths to the `.log` and `.xyz` files.
+ *Usage:* `./DataExtractor.sh <Name of the directory >`
 
  Both of these script are set-up to be called from the *Scripts* directory and will work in the specified directory located on level higher than *Scripts*
 
