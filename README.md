@@ -31,6 +31,7 @@ Choose your weapon with the help of this diagram:
 | Nerd-index          | Big             | Low             |
 | Requirements | [Jupyter](https://anaconda.org) | [Python 3.7](https://www.python.org) |
 | Recommended for     | Scientists  | Chemists    |
+| Ready               | Yes (in 22.10.19) | No          |
 
 
 *Both make use of `CollectAndSortFiles.sh` and `DataExtractor.sh` which are Bash-scripts that organize the data into the form that can be then analyzed by the script*  
