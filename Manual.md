@@ -5,25 +5,13 @@
 >Vitus Besel, Matias Jääskeläinen, Ilaria Pia
 University of Helsinki
 
-Some kind of structure will be
+This program is made for handling the data produced by [ABCluster](http://www.zhjun-sci.com/software-abcluster-download.php) and [GNF-*x*TB](https://pubs.acs.org/doi/10.1021/acs.jctc.8b01176).
+For instructions on usage of this program please read README.md. This manual contains information on the theoretical background of the methods used.
 
-- Prerequisites:  
-  - ABCluster (http://www.zhjun-sci.com/software-abcluster-download.php) + XTB (https://pubs.acs.org/doi/10.1021/acs.jctc.8b01176)
-- Cleaning Data:  
-  - bash scripts collecting it in appropriate files  
-  - Forming a nice pandas data frame  
-  - Applying statistical and machine learning methods  
+The program package constist of bash scripts that collect the relevant data from raw ABC+XTB data and the [Python](https://www.python.org) code that does the data analysis and machine learning methods.
 
 
-## Introduction
-
-Atmospheric science has become increasingly popular especially in the face of climate change and a growing environmental awareness in society. In order to understand the highly complex processes happening in the atmosphere it is not only necessary to conduct fieldwork and measurements, it is also important to deliver the theoretical framework in order to perform simulations complementing the fieldwork or making large scale predictions. One subfield of atmospheric sciences deals with New Particle Formation, which is the formation of particles from single gaseous molecules in the atmosphere, which then can grow further into cloud condensation nuclei. As aerosol- and aerosol-cloud interactions still contribute to the highest uncertainties within current climate models ([1](https://www.ipcc.ch/report/ar5/wg1/anthropogenic-and-natural-radiative-forcing/)) this subfield of New Particle Formation is an especially interesting research object.
-
-#### Configurational Sampling
-
-In order to understand how single gaseous molecules form first molecular cluster and then bigger particles, it is necessary to know the structure of these molecular clusters. However, with an increasing number of molecules inside of an atmospheric cluster, the number of possible conformers rises rapdily. More simply put there are *e.g.* for a molecular cluster made of six sulfuric acid and six ammonia molecules tens of thousands possible ways to form, differing in distances, angles or protonation states of single molecules. *Configurational Sampling* is a method to obtain the relevant local minima structures -*i.e.* the energetically most favorable ones - by a combination of computational chemistry methods and data analysis. This is needed because mainly these minima structures are present in the atmosphere and therefore relevant for atmospheric simulations.
-
-#### ABCluster and GNF-*x*TB
+#### ABCluster and GNF-*x*TB  
 
 Our code comes into action after following programs have provided the set-up for the Configurational Sampling: ABCluster utilizes the artificial bee colony algorithm ([2](http://www.zhjun-sci.com/software-abcluster-download.php)) a generic algorithm which takes the structures of single gaseous molecules given by the user and combines them to molecular clusters and optimizes these structures on a [Molecular Mechanics](https://en.wikipedia.org/wiki/Molecular_mechanics) level of theory. It does this in a way which samples the whole [Configurational Space](https://en.wikipedia.org/wiki/Configuration_space_(physics)) and produces an amount of local minima defined by the user (typically 2000 - 100 000). Further the semi-empirical method GNF-*x*TB is used to once again optimize these structures on a better level of theory. We assume that these steps are conducted by the user within the [Jammy Key for Configurational Sampling (JKCS)](https://pubs.acs.org/doi/10.1021/acs.jpca.9b03853))
 
@@ -39,24 +27,8 @@ After ABCluster and GNF-*x*TB within JKCS the user is left with thousands of out
 
  Both of these script are set-up to be called from the *Scripts* directory and will work in the specified directory located on level higher than *Scripts*
 
- 
-
-The
-
-reads data in
-makes a .csv-file that contains:
-
-Header row: ``` Filename,LogPath,XYZPath,Dipole,Energy ```
-
-
-| Filename | LogPath | XYZPath | Dipole| Energy |
-|------|------|------|------|------|
-| Name of the cluster | path to .log-file | path to .xyz-file | Dipole moment value | Energy value |
 
 ## Statistical methods
-
-### Data exploration
-As a basic data exploration we return a plot of the distributions of the variables Energy and Dipole and a plot of the correlation among all variables of the dataset as a measure of the linear dependency between the variables.
 
 ### Principal Components Analysis
 The Principal components analysis (PCA) is a tool used to reduce the dimensionality of the data that tries to preserve as much information as possible.    
@@ -118,23 +90,3 @@ Finally, to measure the difference between the probability distributions of the 
 T-SNE minimizes the sum of Kullback-Leibler divergences over all datapoints using a gradient descent method.   
 
 A plot of the clustered datapoints in the 2-dimensional t-SNE space is given as a final output.
-
-
-
-## Outcomes
-
-How do we present it in a website/Manual | How do we sell it?i
-Prerequisites
-ABCluster employs a generic algorithm -> generates molecular clusters from cluster monomers. + Optimization on MM level
-XTB is a semi-empiric method
-Preparing data
-Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.
-Collecting and sorting files
-Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan.
-Creating a suitable data frame
-Applying statistical and machine-learning methods
-Nam liber tempor cum solu
-Discussion
-Does it work? In which ways?
-Publication
-How do we present it / publish it?
