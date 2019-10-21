@@ -18,7 +18,7 @@ Or actually we assume that you have created a sh*tload of XTB-data and still you
 
 ## The purpose of this code package is
 
-*Reduce the amount of molecules for the next level of theory computations*
+*Reduce the amount of molecules for the next level of theory computations and give some preliminary overview over the data.*
 
 ### First
 
