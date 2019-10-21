@@ -3,8 +3,8 @@
 # The purpose of this script is to get the final total energy and dipoles of all .log files
 # We grep
 # This script fails if the .log files have a different structure than expected
-echo "Give as only input please the folder name with your "logs" and "coord" file (if not give already) [ENTER]"
-read -p "Press enter to continue"
+echo "Give as only input please the folder name with your "logs" and "coord" file (if not give already)"
+read -p "Give input and press enter to continue:  "
 
 cd ../$1
 
