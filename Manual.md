@@ -5,20 +5,11 @@
 >Vitus Besel, Matias Jääskeläinen, Ilaria Pia
 University of Helsinki
 
-This program is made for handling the data produced by [ABCluster](http://www.zhjun-sci.com/software-abcluster-download.php) + XTB (https://pubs.acs.org/doi/10.1021/acs.jctc.8b01176)
-- Cleaning Data:  
-  - bash scripts collecting it in appropriate files  
-  - Forming a nice pandas data frame  
-  - Applying statistical and machine learning methods  
+This program is made for handling the data produced by [ABCluster](http://www.zhjun-sci.com/software-abcluster-download.php) and [GNF-*x*TB](https://pubs.acs.org/doi/10.1021/acs.jctc.8b01176).
+For instructions on usage of this program please read README.md. This manual contains information on the theoretical background of the methods used.
 
+The program package constist of bash scripts that collect the relevant data from raw ABC+XTB data and the [Python](https://www.python.org) code that does the data analysis and machine learning methods.
 
-## Introduction
-
-Atmospheric science has become increasingly popular especially in the face of climate change and a growing environmental awareness in society. In order to understand the highly complex processes happening in the atmosphere it is not only necessary to conduct fieldwork and measurements, it is also important to deliver the theoretical framework in order to perform simulations complementing the fieldwork or making large scale predictions. One subfield of atmospheric sciences deals with New Particle Formation, which is the formation of particles from single gaseous molecules in the atmosphere, which then can grow further into cloud condensation nuclei. As aerosol- and aerosol-cloud interactions still contribute to the highest uncertainties within current climate models ([1](https://www.ipcc.ch/report/ar5/wg1/anthropogenic-and-natural-radiative-forcing/)) this subfield of New Particle Formation is an especially interesting research object.
-
-#### Configurational Sampling
-
-In order to understand how single gaseous molecules form first molecular cluster and then bigger particles, it is necessary to know the structure of these molecular clusters. However, with an increasing number of molecules inside of an atmospheric cluster, the number of possible conformers rises rapdily. More simply put there are *e.g.* for a molecular cluster made of six sulfuric acid and six ammonia molecules tens of thousands possible ways to form, differing in distances, angles or protonation states of single molecules. *Configurational Sampling* is a method to obtain the relevant local minima structures -*i.e.* the energetically most favorable ones - by a combination of computational chemistry methods and data analysis. This is needed because mainly these minima structures are present in the atmosphere and therefore relevant for atmospheric simulations.
 
 #### ABCluster and GNF-*x*TB  
 
