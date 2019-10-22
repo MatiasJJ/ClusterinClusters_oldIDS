@@ -11,7 +11,7 @@ For instructions on usage of this program please read README.md. This manual con
 The program package constist of bash scripts that collect the relevant data from raw ABC+XTB data and the [Python](https://www.python.org) code that does the data analysis and machine learning methods.
 
 
-#### ABCluster and GNF-*x*TB  
+### ABCluster and GNF-*x*TB  
 
 Our code comes into action after following programs have provided the set-up for the Configurational Sampling: ABCluster utilizes the artificial bee colony algorithm ([2](http://www.zhjun-sci.com/software-abcluster-download.php)) a generic algorithm which takes the structures of single gaseous molecules given by the user and combines them to molecular clusters and optimizes these structures on a [Molecular Mechanics](https://en.wikipedia.org/wiki/Molecular_mechanics) level of theory. It does this in a way which samples the whole [Configurational Space](https://en.wikipedia.org/wiki/Configuration_space_(physics)) and produces an amount of local minima defined by the user (typically 2000 - 100 000). Further the semi-empirical method GNF-*x*TB is used to once again optimize these structures on a better level of theory. We assume that these steps are conducted by the user within the [Jammy Key for Configurational Sampling (JKCS)](https://pubs.acs.org/doi/10.1021/acs.jpca.9b03853))
 
@@ -49,7 +49,7 @@ Assuming we want to reduce the number of our original p variables to k<p variabl
 The final output is a set of p uncorrelated variables with decreasing variance: ![equation](https://latex.codecogs.com/gif.latex?Z_1%2C...%20%2CZ_p) such that ![equation](https://latex.codecogs.com/gif.latex?Var%28Z_1%29%20%3E%20Var%28Z_2%29%20%3E...%20%3E%20Var%28Z_p%29) and ![equation](https://latex.codecogs.com/gif.latex?Cov%28Z_j%20%2C%20Z_k%20%29%20%3D%200) for j ≠ k.
 
 
-We apply PCA to our coordinates variables, and select new variables, that explain at least 80% of the variability of our data. The variables Dipole and Energy are kept unchanged so that we won't lose their intrinsic meaning.
+PCA is applied to the coordinates variables, and new variables, that explain at least 80% of the variability of the data are selected. The variables Dipole and Energy are kept unchanged so that we won't lose their intrinsic meaning.
 
 ### Clustering with k-Means
 In order to reduce the variety of the observations we cluster the data, by using a k-mean algorithm, that is a non-hierarchical method of clustering, i.e. the number k of groups is assumed to be fixed.
@@ -72,7 +72,7 @@ where n is the number of data points, k the number of clusters, W(k) the within 
 As the resulting clusters depend strongly on the choice of the starting centroids a common practice is to repeat the algorithm several times with different starting centroids, randomly generated.
 
 
-We applied the k-mean algorithm to our data, selecting a number of clusters k=23 as this is the number of possible permutations of our chemical cluster: there are 23 different ways of adding 4 water molecules, 1 ammonia and 1 sulfuric acid. The possibility to select k according to the CH index is also given.
+K-mean algorithm is applied to data, selecting a number of clusters k that maximize the CH index. The possibility to chose a different k (e.g. k equal to the number of possible permutations of the chemical cluster) is also given.
 
 ### Visualization with t-SNE
 To visualize the multidimensional dataset we use the t-Distributed Stochastic Neighbor Embedding (t-SNE), an unsupervised, non-linear technique of dimensionality reduction, introduced by Laurens van der Maatens and Geoffrey Hinton in 2008.   
