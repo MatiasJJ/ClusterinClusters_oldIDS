@@ -2,11 +2,7 @@
 
 Welcome to use `Clusterin'Clusters` -code!
 
-> This is still under construction!
-
-We assume you have just created a plethora of .xyz- and .log-files and your face looks like
-
-Or actually we assume that you have created a sh*tload of XTB-data and still your face looks like:
+We assume you have just created a sh*tload of XTB-data and still your face looks like:
 ```
   L...L  
  < o o >
@@ -20,6 +16,7 @@ Or actually we assume that you have created a sh*tload of XTB-data and still you
 
 *Reduce the amount of molecules for the next level of theory computations and give some preliminary overview over the data.*
 
+## How to..?
 ### First
 
 Choose your weapon with the help of this diagram:  
@@ -31,17 +28,15 @@ Choose your weapon with the help of this diagram:
 | Nerd-index          | Big             | Low             |
 | Requirements | [Jupyter](https://anaconda.org) | [Python 3.7](https://www.python.org) |
 | Recommended for     | Scientists  | Chemists    |
-| Ready               | Yes (in 22.10.19) | No          |
-
-
-*Both make use of `CollectAndSortFiles.sh` and `DataExtractor.sh` which are Bash-scripts that organize the data into the form that can be then analyzed by the script*  
 
 >WARNING: with MacOS you have to modify the `sed`-syntax inside the bash-scripts.
 
-
 ### Second
 
-Make a folder for your project and download your weapon of choice into that folder.
+1. Make a folder for your project (hereby: ProjectFolder)
+2. Download your weapon of choice into ProjectFolder  
+
+**For pure testing purposes we have provided you with sample XTB-data. Please download XTB-folder into ProjectFolder**
 
 ##### Jupyter Notebook
 
@@ -55,22 +50,21 @@ Files:
 
 ### Third
 
-Run `CollectAndSortFiles.sh`  
+Open command prompt and navigate to `ProjectFolder/weapon-of-choice/`
+Run `CollectAndSortFiles.sh`
 *Usage:* `./CollectAndSortFiles.sh <Name of the directory which the data will be put to> <Absolute path to directory containing XTB_>`
 
 Run `DataExtractor.sh`  
 *Usage:* `./DataExtractor.sh <Name of the directory where the data was put into>`
 
-
-> If you're using just the python script:
+> If you're using the python script:
 
 Run the Python script
-*Usage:* `python clusterin.py <Name of the directory where the data was put into>`
+*Usage:* `python ClusterinClusters.py $(pwd) <Name of the directory where the data was put into> <the number that `CollectAndSortFiles.sh` prints>`
 
 > If you're using the Jupyter Notebook
 
 Open the JupyterNotebook and run it. Please read the text in between.
-
 
 After you're finished, your face should look like:
 ![smile](Archive/Images/egg.png)

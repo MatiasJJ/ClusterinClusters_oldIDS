@@ -154,6 +154,11 @@ clusters_df.columns = ['_'.join(col) for col in clusters_df.columns.values]
 energy=clusters_df['Properties_Energy']                                # %1 should take only the decimals
 coord=clusters_df.drop(['Properties_Energy','Properties_Dipole'],1)    # dipoles and energy out
 
+print("""
+____________________________________________________
+Finished reading the data.
+You may see some pictures in outputs-folder...
+""")
 
 # ## Data exploration / EDA
 
@@ -184,6 +189,10 @@ PCs_coord = pca.fit_transform(coord)            # fit_transform on eri kun pelkk
 PCs_df = pd.DataFrame(data = PCs_coord, columns=["PC{}".format(i) for i in range(PCs_coord.shape[1])])
 #print('Explained variance :', np.sum(pca.explained_variance_ratio_)*100, '%')    # It seems that it is 80% :D
 
+print("""
+____________________________________________________
+Finished the Principal Component Analysis.
+""")
 
 #2D graph of first two PCs
 #print('Explained variance PC1 :', pca.explained_variance_ratio_[0]*100, '%')
@@ -211,11 +220,12 @@ kmeans_PCs = KMeans(n_clusters=n_perm)
 kmeans_PCs.fit(PCs_df)
 PCs_kmeans = kmeans_PCs.predict(PCs_df)
 
-#plt.scatter(PCs_df['PC1'], PCs_df['PC2'], c=PCs_kmeans,s=3, cmap='viridis', alpha=0.2)
+plt.scatter(PCs_df['PC1'], PCs_df['PC2'], c=PCs_kmeans,s=3, cmap='viridis', alpha=0.2)
 centers_PCs = kmeans_PCs.cluster_centers_
-#plt.scatter(centers_PCs[:, 0], centers_PCs[:, 1], c='black', s=200, alpha=0.5)
-#plt.ylabel('PC2')
-#plt.xlabel('PC1')
+plt.scatter(centers_PCs[:, 0], centers_PCs[:, 1], c='black', s=200, alpha=0.5)
+plt.ylabel('PC2')
+plt.xlabel('PC1')
+plt.savefig("{}clustered_PCs.png".format(path2out),dpi=300)
 #plt.show()
 
 
@@ -228,11 +238,12 @@ kmeans_PCE = KMeans(n_clusters=n_perm)
 kmeans_PCE.fit(PCsE_df)
 PCE_kmeans = kmeans_PCE.predict(PCsE_df)
 
-#plt.scatter(PCsE_df['PC1'], PCsE_df['PC2'], c=PCE_kmeans,s=3, cmap='viridis', alpha=0.2)
+plt.scatter(PCsE_df['PC1'], PCsE_df['PC2'], c=PCE_kmeans,s=3, cmap='viridis', alpha=0.2)
 centers_PCE = kmeans_PCE.cluster_centers_
-#plt.scatter(centers_PCE[:, 0], centers_PCE[:, 1], c='black', s=200, alpha=0.5)
-#plt.ylabel('PC2')
-#plt.xlabel('PC1')
+plt.scatter(centers_PCE[:, 0], centers_PCE[:, 1], c='black', s=200, alpha=0.5)
+plt.ylabel('PC2')
+plt.xlabel('PC1')
+plt.savefig("{}clustered_PCsE.png".format(path2out),dpi=300)
 #plt.show()
 
 
@@ -256,6 +267,21 @@ for index,row in stat_clusts_DF.iterrows():
     avg_xyz = pd.DataFrame(row_arr[:,newperm],columns=['atom','x','y','z'])
     avg_xyz.to_csv("{}coord{}.xyz".format(path2out,index),sep='\t',index=False,header=[str(n_atoms),'','','\n'],quotechar=' ')
 
+print("""
+____________________________________________________
+Finished clustering!
+There's more pictures in outputs-folder :)
+
+Also there's new .xyz-files!!!
+Those represent the Clusters
+at the center of the clusters
+
+Please remain seated
+and wait for the code to run t_SNE
+
+Actually, you may go and grab another coffee..
+""")
+
 
 # ## t-SNE for visualizing the clusters better
 
@@ -276,10 +302,15 @@ plt.title("Clusters' Cluster")
 plt.ylabel('t-SNE component 2')
 plt.xlabel('t-SNE component 1')
 plt.savefig("{}clustered_tsne.png".format(path2out),dpi=300)
-plt.show()
+#plt.show()
 
+print("""
+____________________________________________________
+Finished t-SNE!
+There's one more picture in outputs-folder :o
 
-# ***
+Put away your coffee and start doing work!
+""")
 
 # ***
 
@@ -333,5 +364,3 @@ plt.show()
 # | `tsne_PCE_cluster`   | t_SNE + groupID           | array       |
 # | `centers_tSNE`       | E+PCA centers for t-SNE   | array       |
 #
-
-# ***
