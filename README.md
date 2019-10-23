@@ -67,4 +67,5 @@ Run the Python script
 Open the JupyterNotebook and run it. Please read the text in between.
 
 After you're finished, your face should look like:
+
 ![smile](Archive/Images/Egg.png)
